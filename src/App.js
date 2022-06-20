@@ -11,23 +11,24 @@ function App() {
   const [messageB, setMessageB] = useState('');
   const [messageC, setMessageC] = useState('');
 
+  function handle(a, event) {
+    setMessage(event.target.value);
+    console.log('value is:', event.target.value);
+    arr[a] = event.target.value
+    printMany()  
+  }
   var arr = ['']
 
   const handleChange = event => {
-    setMessage(event.target.value);
-    console.log('value is:', event.target.value);
-    printMany()
+    handle(4, event)
   };
+
   const handleChangeB = event => {
     setMessageB(event.target.value);
     console.log('value is:', event.target.value);
     arr[3] = event.target.value
     printMany()
   };
-
-  const handle = event => {
-
-  }
 
 
   const printMany = even => {
