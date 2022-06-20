@@ -7,16 +7,11 @@ function sayHello() {
 }
 
 const arr = ['']
-const valArr = ['']
+const valArr = []
 
 function App() {
 
-  const [message, setMessage] = useState('');
-  const [messageB, setMessageB] = useState('');
-  const [messageC, setMessageC] = useState('');
-
   function handle(a, event) {
-    setMessage(event.target.value);
     console.log('value is:', event.target.value);
     arr[a] = event.target.value
     valArr[a] = event.target.value
