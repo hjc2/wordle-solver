@@ -6,15 +6,31 @@ function sayHello() {
   console.log(arr)
 }
 
-const arr = []
-const valArr = []
+var arr = []
+var valArr = []
+
 var valid = []
 const words = wordsList["array"]
 console.log(words)
+/*
+for(let i = 0; i < 5; i++){
+  arr[i] = ''
+  valArr[i] = ''
+} */
+
 function App() {
   
-  function filterGreen(){
-    
+  function filterYellow(){
+    var result = words.filter(word => word.includes(valArr[0]));
+    for(let i = 1; i < 5; i++){
+      console.log(arr[i])
+      if(valArr[i] != '' && valArr[i] !== undefined){
+        result = result.filter(result => result.includes(valArr[i]));
+        console.log("filiter")
+      }
+    }
+
+    return(result)
   }
 
   function handle(a, event) {
@@ -22,8 +38,7 @@ function App() {
     arr[a] = event.target.value
     valArr[a] = event.target.value
     printMany()
-
-    console.log(words)
+    console.log(filterYellow())
   }
 
   const handleChangeA = event => {
