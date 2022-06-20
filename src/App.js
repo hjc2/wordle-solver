@@ -1,21 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import wordsList from './words.json'
 
 function sayHello() {
   console.log(arr)
 }
 
-const arr = ['']
+const arr = []
 const valArr = []
-
+var valid = []
+const words = wordsList["array"]
+console.log(words)
 function App() {
+  
+  function filterGreen(){
+    
+  }
 
   function handle(a, event) {
     console.log('value is:', event.target.value);
     arr[a] = event.target.value
     valArr[a] = event.target.value
-    printMany()  
+    printMany()
+
+    console.log(words)
   }
 
   const handleChangeA = event => {
@@ -55,7 +63,7 @@ function App() {
           <input type="text" maxLength="1" className="App-Green-4" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={handleChangeE} value={valArr[4]}/>
         </div>
 
-        <h2>Message: {String(arr)}</h2>
+        <h2>Message: {valid}</h2>
 
         <button onClick={sayHello.bind(this)}>  Activate Lasers
         </button>
