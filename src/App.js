@@ -2,12 +2,14 @@ import logo from './logo.svg';
 import './App.css';
 import wordsList from './words.json'
 import { useState } from 'react';
+import React from 'react';
 
 function sayHello() {
   //console.log(arr)
   console.log(outvalue)
   outvalue = outvalue + 1
 }
+
 
 var arr = []
 var valArr = []
@@ -16,6 +18,7 @@ var valid = []
 const words = wordsList["array"]
 
 var outvalue = 1
+var out = []
 console.log(words)
 /*
 for(let i = 0; i < 5; i++){
@@ -24,7 +27,10 @@ for(let i = 0; i < 5; i++){
 } */
 
 function App() {
-  
+
+  const [message, setMessage] = useState('');
+
+
   function filterYellow(){
     var result = words.filter(word => word.includes(valArr[0]));
     for(let i = 1; i < 5; i++){
@@ -46,9 +52,8 @@ function App() {
     valArr[a] = event.target.value
     printMany()
     console.log(filterYellow())
+    setMessage(filterYellow)
   }
-
-
 
   const handleChangeA = event => {
     handle(0, event)
@@ -65,17 +70,18 @@ function App() {
   const handleChangeE = event => {
     handle(4, event)
   };
-  
+  const handleChangeO = event => {
+    handleO(event)
+  }
 
-  const handleOut = event => {
+  function handleO(event) {
+    out[0] = event.target.value
+    console.log("a")
+    console.log(out)
     setMessage(event.target.value);
-
-    console.log('value is:', event.target.value);
-  };
-
-  const [message, setMessage] = useState('');
-
-  const printMany = even => {
+  }
+  
+  const printMany = event => {
     console.log("arr: " + arr)
   }
 
@@ -95,15 +101,14 @@ function App() {
           <input type="text" maxLength="1" className="App-Green-4" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={handleChangeE} value={valArr[4]}/>
         </div>
 
-        <div className='Output'>
-          <input type="text" maxLength="10" className="App-Green-5" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={handleOut} value={outvalue}/>
-        </div>
-        <h2>Message: {valArr[0]}</h2>
+        
 
-        <button onClick={sayHello.bind(this)} value={arr.toString()}> $(arr.toString)
-        </button>
+        <button type="button" onClick={sayHello.bind(this)} value="big" id="show"> click me! </button>
 
+        <input type="number" maxLength="15" className="Output" autoComplete="off" spellCheck="false" autoCorrect="off" onChange={handleChangeO} value={out[0]}/>
+        
       </header>
+      <h2>Message: {message}</h2>
     </div>
   );
 }
