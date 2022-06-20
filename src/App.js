@@ -1,9 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 import wordsList from './words.json'
+import { useState } from 'react';
 
 function sayHello() {
-  console.log(arr)
+  //console.log(arr)
+  console.log(outvalue)
+  outvalue = outvalue + 1
 }
 
 var arr = []
@@ -11,6 +14,8 @@ var valArr = []
 
 var valid = []
 const words = wordsList["array"]
+
+var outvalue = 1
 console.log(words)
 /*
 for(let i = 0; i < 5; i++){
@@ -24,11 +29,13 @@ function App() {
     var result = words.filter(word => word.includes(valArr[0]));
     for(let i = 1; i < 5; i++){
       console.log(arr[i])
-      if(valArr[i] != '' && valArr[i] !== undefined){
+      if(valArr[i] !== '' && valArr[i] !== undefined){
         result = result.filter(result => result.includes(valArr[i]));
         console.log("filiter")
       }
     }
+
+    valid = result
 
     return(result)
   }
@@ -40,6 +47,8 @@ function App() {
     printMany()
     console.log(filterYellow())
   }
+
+
 
   const handleChangeA = event => {
     handle(0, event)
@@ -56,7 +65,15 @@ function App() {
   const handleChangeE = event => {
     handle(4, event)
   };
+  
 
+  const handleOut = event => {
+    setMessage(event.target.value);
+
+    console.log('value is:', event.target.value);
+  };
+
+  const [message, setMessage] = useState('');
 
   const printMany = even => {
     console.log("arr: " + arr)
@@ -67,7 +84,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          onChange={arr}
+          onChange={handleChangeA}
         </p>
 
         <div className='Green'>
@@ -78,9 +95,12 @@ function App() {
           <input type="text" maxLength="1" className="App-Green-4" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={handleChangeE} value={valArr[4]}/>
         </div>
 
-        <h2>Message: {valid}</h2>
+        <div className='Output'>
+          <input type="text" maxLength="10" className="App-Green-5" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={handleOut} value={outvalue}/>
+        </div>
+        <h2>Message: {valArr[0]}</h2>
 
-        <button onClick={sayHello.bind(this)}>  Activate Lasers
+        <button onClick={sayHello.bind(this)} value={arr.toString()}> $(arr.toString)
         </button>
 
       </header>
