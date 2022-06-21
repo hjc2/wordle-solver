@@ -38,7 +38,7 @@
   height: 56px;
   border-radius: 4px;
   position: center;
-  background-color: rgba(255,255,255,0.3);
+  background-color: rgba(255,255,164,0.3);
   transition: 0.3s all;
   border-style: solid;
   border-color: #ffffff;
@@ -50,11 +50,41 @@
 }
 
 .Green > *:hover {
-  background-color: rgba(255, 255, 255, 0.45);
+  background-color: rgba(220, 220, 129, 0.45);
   box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05);
 }
 
 .Green > *:focus {
+  border-style: solid;
+  border-color: #ffffff;
+  background-color: green;
+  outline: none;
+}
+
+.Yellow > * {
+  /* Your style */
+  width: 56px;
+  height: 56px;
+  border-radius: 4px;
+  position: center;
+  background-color: rgba(255,255,0,0.4);
+  transition: 0.3s all;
+  border-style: solid;
+  border-color: #ffffff;
+  color: white;
+  font-size: 100%;
+  text-align: center; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.Yellow > *:hover {
+  background-color: rgba(255, 255, 164, 0.45);
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05);
+}
+
+.Yellow > *:focus {
   border-style: solid;
   border-color: #ffffff;
   background-color: silver;

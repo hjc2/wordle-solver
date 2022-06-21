@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import wordsList from './words.json'
+import answerList from './answerList.json'
+
 import { useState } from 'react';
 import React from 'react';
 
@@ -8,12 +10,19 @@ var arr = []
 var valArr = []
 
 var valid = []
-const words = wordsList["array"]
+const words = answerList["array"]
 
 function App() {
 
   const [message, setMessage] = useState([]);
 
+
+  function filterAll(){
+    let green = filterGreen()
+    let yellow = filterYellow(green)
+
+    return(yellow)
+  }
   function filterGreen(){
     var result = words.filter(word => word.includes(valArr[0]));
 
@@ -35,9 +44,9 @@ function App() {
 
     return(extra)
   }
-  function filterYellow(){
-    var result = words.filter(word => word.includes(valArr[0]));
-    for(let i = 1; i < 5; i++){
+  function filterYellow(green){
+    var result = green.filter(green => green.includes(valArr[0]));
+    for(let i = 5; i < 10; i++){
       //console.log(arr[i])
       if(valArr[i] !== '' && valArr[i] !== undefined){
         result = result.filter(result => result.includes(valArr[i]));
@@ -56,7 +65,8 @@ function App() {
     valArr[a] = event.target.value
     printMany()
     //console.log(filterYellow())
-    setMessage(filterGreen())
+    setMessage(filterAll())
+    console.log(arr)
   }
 
   const handleChangeA = event => {
@@ -74,7 +84,21 @@ function App() {
   const handleChangeE = event => {
     handle(4, event)
   };
-  
+  const handleChangeF = event => {
+    handle(5, event)
+  };
+  const handleChangeG = event => {
+    handle(6, event)
+  };
+  const handleChangeH = event => {
+    handle(7, event)
+  };
+  const handleChangeI = event => {
+    handle(8, event)
+  };
+  const handleChangeJ = event => {
+    handle(9, event)
+  };
   const printMany = event => {
     //console.log("arr: " + arr)
     //console.log(message)
@@ -95,10 +119,18 @@ function App() {
           <input type="text" maxLength="1" className="App-Green-3" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={handleChangeD} value={valArr[3]}/>
           <input type="text" maxLength="1" className="App-Green-4" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={handleChangeE} value={valArr[4]}/>
         </div>
-        
-        <h2>valid words:<br></br>{message.join(", ")}</h2>
+        <br></br>
+        <div className='Yellow'>
+          <input type="text" maxLength="1" className="App-Yellow-0" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={handleChangeF} value={valArr[5]}/>
+          <input type="text" maxLength="1" className="App-Yellow-1" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={handleChangeG} value={valArr[6]}/>
+          <input type="text" maxLength="1" className="App-Yellow-2" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={handleChangeH} value={valArr[7]}/>
+          <input type="text" maxLength="1" className="App-Yellow-3" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={handleChangeI} value={valArr[8]}/>
+          <input type="text" maxLength="1" className="App-Yellow-4" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={handleChangeJ} value={valArr[9]}/>
+        </div>
+        <h2>valid words: + {message.length} <br></br>{message.join(", ")}</h2>
         {console.log(typeof message)}
         {console.log(message)}
+        
       </header>
     </div>
   );
