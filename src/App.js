@@ -14,6 +14,27 @@ function App() {
 
   const [message, setMessage] = useState([]);
 
+  function filterGreen(){
+    var result = words.filter(word => word.includes(valArr[0]));
+
+    var extra = []
+
+    for(let i = 0; i < result.length; i++){
+      var isGreen = true
+      for(let j = 0; j < 5; j++){
+        if(valArr[j] !== '' && valArr[j] !== undefined && arr[j] != result[i].charAt(j)){
+          isGreen = false
+        }
+      }
+      if(isGreen){
+        extra.push(result[i])
+      }
+    }
+
+    valid = extra
+
+    return(extra)
+  }
   function filterYellow(){
     var result = words.filter(word => word.includes(valArr[0]));
     for(let i = 1; i < 5; i++){
@@ -35,7 +56,7 @@ function App() {
     valArr[a] = event.target.value
     printMany()
     //console.log(filterYellow())
-    setMessage(filterYellow)
+    setMessage(filterGreen())
   }
 
   const handleChangeA = event => {
