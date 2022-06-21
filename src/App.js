@@ -69,37 +69,6 @@ function App() {
     console.log(arr)
   }
 
-  const handleChangeA = event => {
-    handle(0, event)
-  };
-  const handleChangeB = event => {
-    handle(1, event)
-  };
-  const handleChangeC = event => {
-    handle(2, event)
-  };
-  const handleChangeD = event => {
-    handle(3, event)
-  };
-  const handleChangeE = event => {
-    handle(4, event)
-  };
-  const handleChangeF = event => {
-    handle(5, event)
-  };
-  const handleChangeG = event => {
-    handle(6, event)
-  };
-  const handleChangeH = event => {
-    handle(7, event)
-  };
-  const handleChangeI = event => {
-    handle(8, event)
-  };
-  const handleChangeJ = event => {
-    handle(9, event)
-  };
-
   const handleChange = (event, num) => {
     handle(num, event)
   }
@@ -120,17 +89,17 @@ function App() {
         <div className='Green'>
           <input type="text" maxLength="1" className="App-Green-0" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 0)}} value={valArr[0]}/>
           <input type="text" maxLength="1" className="App-Green-1" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 1)}} value={valArr[1]}/>
-          <input type="text" maxLength="1" className="App-Green-2" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={handleChangeC} value={valArr[2]}/>
-          <input type="text" maxLength="1" className="App-Green-3" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={handleChangeD} value={valArr[3]}/>
-          <input type="text" maxLength="1" className="App-Green-4" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={handleChangeE} value={valArr[4]}/>
+          <input type="text" maxLength="1" className="App-Green-2" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 2)}} value={valArr[2]}/>
+          <input type="text" maxLength="1" className="App-Green-3" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 3)}} value={valArr[3]}/>
+          <input type="text" maxLength="1" className="App-Green-4" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 4)}} value={valArr[4]}/>
         </div>
         <br></br>
         <div className='Yellow'>
-          <input type="text" maxLength="1" className="App-Yellow-0" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={handleChangeF} value={valArr[5]}/>
-          <input type="text" maxLength="1" className="App-Yellow-1" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={handleChangeG} value={valArr[6]}/>
-          <input type="text" maxLength="1" className="App-Yellow-2" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={handleChangeH} value={valArr[7]}/>
-          <input type="text" maxLength="1" className="App-Yellow-3" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={handleChangeI} value={valArr[8]}/>
-          <input type="text" maxLength="1" className="App-Yellow-4" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={handleChangeJ} value={valArr[9]}/>
+          <input type="text" maxLength="1" className="App-Yellow-0" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 5)}}value={valArr[5]}/>
+          <input type="text" maxLength="1" className="App-Yellow-1" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 6)}} value={valArr[6]}/>
+          <input type="text" maxLength="1" className="App-Yellow-2" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 7)}} value={valArr[7]}/>
+          <input type="text" maxLength="1" className="App-Yellow-3" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 8)}} value={valArr[8]}/>
+          <input type="text" maxLength="1" className="App-Yellow-4" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 9)}} value={valArr[9]}/>
         </div>
         <h2>valid words: + {message.length} <br></br>{message.join(", ")}</h2>
         {console.log(typeof message)}
