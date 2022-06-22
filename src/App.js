@@ -16,24 +16,24 @@ function App() {
 
   const [message, setMessage] = useState([]);
 
-
   function filterAll(){
     let green = filterGreen()
-    let yellow = filterYellow(green)
-    let grey = filterGrey(yellow)
 
-    return(grey)
+    console.log(green.length)
+    let yellow = filterYellow(green)
+    return(yellow)
   }
 
   function filterGreen(){
-    var result = words.filter(word => word.includes(valArr[0]));
+    var result = words
+    console.log("words length: " + result.length)
 
     var extra = []
 
     for(let i = 0; i < result.length; i++){
       var isGreen = true
       for(let j = 0; j < 5; j++){
-        if(valArr[j] !== '' && valArr[j] !== undefined && arr[j] != result[i].charAt(j)){
+        if(valArr[j] !== '' && valArr[j] !== undefined && arr[j] !== result[i].charAt(j)){
           isGreen = false
         }
       }
@@ -44,11 +44,14 @@ function App() {
 
     valid = extra
 
+    console.log("extra length: " + extra.length)
+
     return(extra)
   }
 
   function filterYellow(green){
-    var result = green.filter(green => green.includes(valArr[0]));
+    var result = green
+    
     for(let i = 5; i < 10; i++){
       //console.log(arr[i])
       if(valArr[i] !== '' && valArr[i] !== undefined){
@@ -62,21 +65,11 @@ function App() {
     return(result)
   }
 
-  function filterGrey(green){
-    var result = []
-    
-    // green.foreach(elem => if(elem.includes(valArr[0])))
+  function singleGrey(green, letter, index){
 
-    for(let i = 0; i < green.length; i++){
-      for(let i = 5; i < 10; i++){
-        //console.log(arr[i])
-        if(valArr[i] !== '' && valArr[i] !== undefined){
-          result.push(green[i])
-        } else if(!green[i].includes(valArr[10]) && !green[i].includes(valArr[11]) && !green[i].includes(valArr[12])){
-          result.push(green[i])
-        }
-      }
-    }
+    var result = []
+
+    //for(let i = 0; i < )
 
     return(result)
   }
@@ -85,18 +78,12 @@ function App() {
     //console.log('value is:', event.target.value);
     arr[a] = event.target.value
     valArr[a] = event.target.value
-    printMany()
     setMessage(filterAll())
     console.log(arr)
   }
 
   const handleChange = (event, num) => {
     handle(num, event)
-  }
-  
-  const printMany = event => {
-    //console.log("arr: " + arr)
-    //console.log(message)
   }
 
   return (
@@ -121,13 +108,6 @@ function App() {
           <input type="text" maxLength="1" className="App-Yellow-2" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 7)}} value={valArr[7]}/>
           <input type="text" maxLength="1" className="App-Yellow-3" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 8)}} value={valArr[8]}/>
           <input type="text" maxLength="1" className="App-Yellow-4" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 9)}} value={valArr[9]}/>
-        </div>
-        <div className='Grey'>
-          <input type="text" maxLength="1" className="App-Grey-0" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 10)}}value={valArr[10]}/>
-          <input type="text" maxLength="1" className="App-Grey-0" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 11)}}value={valArr[11]}/>
-          <input type="text" maxLength="1" className="App-Grey-0" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 12)}}value={valArr[12]}/>
-          <input type="text" maxLength="1" className="App-Grey-0" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 13)}}value={valArr[13]}/>
-          <input type="text" maxLength="1" className="App-Grey-0" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 14)}}value={valArr[14]}/>
         </div>
         <h2>valid words: + {message.length} <br></br>{message.join(", ")}</h2>
         {console.log(typeof message)}
