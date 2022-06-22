@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-image: linear-gradient( 109.6deg,  rgba(61,245,167,1) 11.2%, rgba(9,111,224,1) 91.1% );
+  background-image: linear-gradient( 109.6deg,  black, black);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -38,7 +38,7 @@
   height: 56px;
   border-radius: 4px;
   position: center;
-  background-color: rgba(255,255,164,0.3);
+  background-color: #6ca965;
   transition: 0.3s all;
   border-style: solid;
   border-color: #ffffff;
@@ -67,7 +67,7 @@
   height: 56px;
   border-radius: 4px;
   position: center;
-  background-color: rgba(255,255,0,0.4);
+  background-color: #c8b653;
   transition: 0.3s all;
   border-style: solid;
   border-color: #ffffff;
@@ -97,7 +97,7 @@
   height: 56px;
   border-radius: 4px;
   position: center;
-  background-color: rgba(100,100,100,0.6);
+  background-color: #787c7f;
   transition: 0.3s all;
   border-style: solid;
   border-color: #ffffff;
@@ -110,14 +110,14 @@
 }
 
 .Grey > *:hover {
-  background-color: rgba(164, 164, 164, 0.45);
+  background-color: rgba(160,164,167,100);
   box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05);
 }
 
 .Grey > *:focus {
   border-style: solid;
-  border-color: #ffffff;
-  background-color: silver;
+  border-color: white;
+  background-color: rgba(90,94,97,100);
   outline: none;
 }
 
