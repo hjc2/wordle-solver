@@ -20,9 +20,11 @@ function App() {
   function filterAll(){
     let green = filterGreen()
     let yellow = filterYellow(green)
+    let grey = filterGrey(yellow)
 
-    return(yellow)
+    return(grey)
   }
+
   function filterGreen(){
     var result = words.filter(word => word.includes(valArr[0]));
 
@@ -44,6 +46,7 @@ function App() {
 
     return(extra)
   }
+
   function filterYellow(green){
     var result = green.filter(green => green.includes(valArr[0]));
     for(let i = 5; i < 10; i++){
@@ -59,12 +62,30 @@ function App() {
     return(result)
   }
 
+  function filterGrey(green){
+    var result = []
+    
+    // green.foreach(elem => if(elem.includes(valArr[0])))
+
+    for(let i = 0; i < green.length; i++){
+      for(let i = 5; i < 10; i++){
+        //console.log(arr[i])
+        if(valArr[i] !== '' && valArr[i] !== undefined){
+          result.push(green[i])
+        } else if(!green[i].includes(valArr[10]) && !green[i].includes(valArr[11]) && !green[i].includes(valArr[12])){
+          result.push(green[i])
+        }
+      }
+    }
+
+    return(result)
+  }
+
   function handle(a, event) {
     //console.log('value is:', event.target.value);
     arr[a] = event.target.value
     valArr[a] = event.target.value
     printMany()
-    //console.log(filterYellow())
     setMessage(filterAll())
     console.log(arr)
   }
@@ -100,6 +121,13 @@ function App() {
           <input type="text" maxLength="1" className="App-Yellow-2" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 7)}} value={valArr[7]}/>
           <input type="text" maxLength="1" className="App-Yellow-3" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 8)}} value={valArr[8]}/>
           <input type="text" maxLength="1" className="App-Yellow-4" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 9)}} value={valArr[9]}/>
+        </div>
+        <div className='Grey'>
+          <input type="text" maxLength="1" className="App-Grey-0" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 10)}}value={valArr[10]}/>
+          <input type="text" maxLength="1" className="App-Grey-0" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 11)}}value={valArr[11]}/>
+          <input type="text" maxLength="1" className="App-Grey-0" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 12)}}value={valArr[12]}/>
+          <input type="text" maxLength="1" className="App-Grey-0" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 13)}}value={valArr[13]}/>
+          <input type="text" maxLength="1" className="App-Grey-0" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 14)}}value={valArr[14]}/>
         </div>
         <h2>valid words: + {message.length} <br></br>{message.join(", ")}</h2>
         {console.log(typeof message)}
