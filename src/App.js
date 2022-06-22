@@ -120,7 +120,6 @@ function App() {
           <input type="text" maxLength="1" className="App-Green-3" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 3)}} value={valArr[3]}/>
           <input type="text" maxLength="1" className="App-Green-4" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 4)}} value={valArr[4]}/>
         </div>
-        <br></br>
         <div className='Yellow'>
           <input type="text" maxLength="1" className="App-Yellow-0" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 5)}}value={valArr[5]}/>
           <input type="text" maxLength="1" className="App-Yellow-1" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 6)}} value={valArr[6]}/>
