@@ -37,7 +37,7 @@ function App() {
     for(let i = 0; i < result.length; i++){
       var isGreen = true
       for(let j = 0; j < 5; j++){
-        if(valArr[j] !== '' && valArr[j] !== undefined && arr[j] !== result[i].charAt(j)){
+        if(arr[j] !== '' && arr[j] !== undefined && arr[j] !== result[i].charAt(j)){
           isGreen = false
         }
       }
@@ -57,8 +57,8 @@ function App() {
     var result = green
 
     for(let i = 5; i < 10; i++){
-      if(valArr[i] !== '' && valArr[i] !== undefined){
-        result = result.filter(result => result.includes(valArr[i]));
+      if(arr[i] !== '' && arr[i] !== undefined){
+        result = result.filter(result => result.includes(arr[i]));
       }
     }
 
@@ -73,7 +73,7 @@ function App() {
     for(let i = 0; i < result.length; i++){
       var toggle = true;
       for(let j = 10; j < 30; j++){
-        if(result[i].includes(valArr[j]) && valArr[j] !== '' && valArr[j] !== undefined){
+        if(result[i].includes(arr[j]) && arr[j] !== '' && arr[j] !== undefined){
           toggle = false
         }
       }
@@ -96,7 +96,7 @@ function App() {
   function handle(a, event) {
     //console.log('value is:', event.target.value);
     arr[a] = event.target.value.toLowerCase()
-    valArr[a] = event.target.value.toLowerCase()
+    valArr[a] = event.target.value.toUpperCase()
     setMessage(filterAll())
     console.log(arr)
   }
@@ -111,7 +111,7 @@ function App() {
 
       <h1> Wordle Solver </h1>
         <p>
-          onChange={message[Math.floor((Math.random() * howlong))]}
+          Recommended: {message[Math.floor((Math.random() * howlong))]}
         </p>
 
         <div className='Green'>
@@ -156,7 +156,7 @@ function App() {
         <h2>valid words: + {message.length}</h2>
         <br></br>
         <div className='Output' style={{paddingLeft: '50px', paddingRight : '50px'}}>
-          {message.join(", ")}
+          {message.join(", ").toUpperCase()}
         </div>
         {console.log(typeof message)}
         {console.log(message)}
