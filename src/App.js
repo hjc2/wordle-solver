@@ -21,7 +21,8 @@ function App() {
 
     console.log(green.length)
     let yellow = filterYellow(green)
-    return(yellow)
+    let grey = filterGrey(yellow)
+    return(grey)
   }
 
   function filterGreen(){
@@ -51,18 +52,33 @@ function App() {
 
   function filterYellow(green){
     var result = green
-    
+
     for(let i = 5; i < 10; i++){
-      //console.log(arr[i])
       if(valArr[i] !== '' && valArr[i] !== undefined){
         result = result.filter(result => result.includes(valArr[i]));
-        //console.log("filiter")
       }
     }
 
     valid = result
 
     return(result)
+  }
+
+  function filterGrey(green){
+    var result = green
+    var extra = []
+    for(let i = 0; i < result.length; i++){
+      var toggle = true;
+      for(let j = 10; j < 20; j++){
+        if(result[i].includes(valArr[j]) && valArr[j] !== '' && valArr[j] !== undefined){
+          toggle = false
+        }
+      }
+      if(toggle){
+        extra.push(result[i])
+      }
+    }
+    return(extra)
   }
 
   function singleGrey(green, letter, index){
@@ -108,6 +124,20 @@ function App() {
           <input type="text" maxLength="1" className="App-Yellow-2" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 7)}} value={valArr[7]}/>
           <input type="text" maxLength="1" className="App-Yellow-3" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 8)}} value={valArr[8]}/>
           <input type="text" maxLength="1" className="App-Yellow-4" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 9)}} value={valArr[9]}/>
+        </div>
+        <div className='Grey'>
+          <input type="text" maxLength="1" className="App-Grey-0" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 10)}}value={valArr[10]}/>
+          <input type="text" maxLength="1" className="App-Grey-0" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 11)}}value={valArr[11]}/>
+          <input type="text" maxLength="1" className="App-Grey-0" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 12)}}value={valArr[12]}/>
+          <input type="text" maxLength="1" className="App-Grey-0" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 13)}}value={valArr[13]}/>
+          <input type="text" maxLength="1" className="App-Grey-0" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 14)}}value={valArr[14]}/>
+          <br></br>
+          <input type="text" maxLength="1" className="App-Grey-0" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 15)}}value={valArr[15]}/>
+          <input type="text" maxLength="1" className="App-Grey-0" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 16)}}value={valArr[16]}/>
+          <input type="text" maxLength="1" className="App-Grey-0" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 17)}}value={valArr[17]}/>
+          <input type="text" maxLength="1" className="App-Grey-0" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 18)}}value={valArr[18]}/>
+          <input type="text" maxLength="1" className="App-Grey-0" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 19)}}value={valArr[19]}/>
+
         </div>
         <h2>valid words: + {message.length} <br></br>{message.join(", ")}</h2>
         {console.log(typeof message)}
