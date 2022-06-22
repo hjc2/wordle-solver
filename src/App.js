@@ -95,8 +95,8 @@ function App() {
 
   function handle(a, event) {
     //console.log('value is:', event.target.value);
-    arr[a] = event.target.value
-    valArr[a] = event.target.value
+    arr[a] = event.target.value.toLowerCase()
+    valArr[a] = event.target.value.toLowerCase()
     setMessage(filterAll())
     console.log(arr)
   }
@@ -108,7 +108,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+
+      <h1> Wordle Solver </h1>
         <p>
           onChange={message[Math.floor((Math.random() * howlong))]}
         </p>
@@ -152,7 +153,11 @@ function App() {
           <input type="text" maxLength="1" className="App-Grey-0" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 28)}}value={valArr[28]}/>
           <input type="text" maxLength="1" className="App-Grey-0" autoComplete="off" spellCheck="false" autoCorrect="off" data-index="1" onChange={(e) => {handleChange(e, 29)}}value={valArr[29]}/>
         </div>
-        <h2>valid words: + {message.length} <br></br>{message.join(", ")}</h2>
+        <h2>valid words: + {message.length}</h2>
+        <br></br>
+        <div className='Output' style={{paddingLeft: '50px', paddingRight : '50px'}}>
+          {message.join(", ")}
+        </div>
         {console.log(typeof message)}
         {console.log(message)}
         
